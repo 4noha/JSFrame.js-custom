@@ -3189,6 +3189,9 @@ JSFrame.prototype.showToast = function(model) {
     } else if (model.align == 'center') {
       startY = window.innerHeight / 2;
       endY = window.innerHeight / 2;
+    } else if (model.align == 'custom') {
+      startY = model.y;
+      endY = model.y-20;
     } else {
       //bottom
     }
@@ -3240,7 +3243,9 @@ JSFrame.prototype.showToast = function(model) {
 
   var startX = window.innerWidth / 2;
 
-  if (me.hAlign == 'right') {
+  if (model.hAlign == 'custom') {
+    startX = model.x;
+  } else if (me.hAlign == 'right') {
     startX = -startX;// -500;
   }
 
